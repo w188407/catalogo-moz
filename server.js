@@ -1,17 +1,19 @@
 const express = require("express");
-const Stripe = require("stripe");
+const path = require("path");
 
 const app = express();
 
 app.use(express.json());
 
-// A chave secreta será configurada de forma segura depois
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+// Servir os arquivos do catálogo
+app.use(express.static(__dirname));
 
 app.get("/", (req, res) => {
-  res.send("Servidor do Catálogo Moz funcionando!");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.listen(3000, () => {
-  console.log("Servidor iniciado na porta 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor iniciado na porta ${PORT}`);
 });
