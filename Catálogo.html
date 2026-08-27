@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Catálogo Moz</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f4f6f8;
+  color:#202124;
+  padding-bottom:30px;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header{
+  background:linear-gradient(135deg,#064e46,#075e54,#128c7e);
+  color:white;
+  padding:22px 15px 35px;
+  text-align:center;
+}
+
+.topo{
+  max-width:700px;
+  margin:auto;
+}
+
+.topo-barra{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:12px;
+}
+
+.botao-carrinho-topo{
+  border:none;
+  background:rgba(255,255,255,.18);
+  color:white;
+  border-radius:25px;
+  padding:10px 15px;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.logo{
+  width:75px;
+  height:75px;
+  background:white;
+  border-radius:22px;
+  margin:0 auto 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:38px;
+  box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+header h1{
+  font-size:30px;
+  margin-bottom:7px;
+}
+
+header p{
+  font-size:15px;
+  opacity:.9;
+}
+
+/* =========================
+   BANNER
+========================= */
+
+.banner{
+  max-width:650px;
+  margin:-20px auto 0;
+  padding:0 15px;
+  position:relative;
+}
+
+.banner-conteudo{
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  box-shadow:0 7px 22px rgba(0,0,0,.12);
+}
+
+.banner-texto{
+  flex:1;
+}
+
+.banner-texto small{
+  color:#128c7e;
+  font-weight:bold;
+}
+
+.banner-texto h2{
+  font-size:20px;
+  margin:6px 0;
+}
+
+.banner-texto p{
+  color:#777;
+  font-size:13px;
+  line-height:1.4;
+}
+
+.banner-icone{
+  width:65px;
+  height:65px;
+  border-radius:18px;
+  background:#e8f5f3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+}
+.botao-ver-produtos{
+  margin-top:12px;
+  border:none;
+  border-radius:10px;
+  padding:11px 16px;
+  background:#075e54;
+  color:white;
+  font-size:13px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(7,94,84,.18);
+}
+
+.botao-ver-produtos:active{
+  transform:scale(.96);
+}
+
+/* =========================
+   PESQUISA
+========================= */
+
+.pesquisa-area{
+  padding:18px 15px 8px;
+}
+
+.pesquisa{
+  max-width:650px;
+  margin:auto;
+}
+
+.pesquisa input{
+  width:100%;
+  padding:15px 18px;
+  border:1px solid #ddd;
+  border-radius:15px;
+  outline:none;
+  font-size:15px;
+  background:white;
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.pesquisa input:focus{
+  border-color:#128c7e;
+}
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.categorias{
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  padding:10px 15px 15px;
+  max-width:700px;
+  margin:auto;
+  scrollbar-width:none;
+}
+
+.categorias::-webkit-scrollbar{
+  display:none;
+}
+
+.categoria{
+  flex-shrink:0;
+  border:1px solid #ddd;
+  background:white;
+  color:#444;
+  padding:10px 16px;
+  border-radius:25px;
+  font-size:13px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.categoria.ativa{
+  background:#075e54;
+  border-color:#075e54;
+  color:white;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.container{
+  max-width:650px;
+  margin:auto;
+  padding:10px 15px;
+}
+
+.titulo-area{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:12px 0 17px;
+}
+
+.titulo{
+  font-size:21px;
+}
+
+.subtitulo{
+  color:#888;
+  font-size:11px;
+}
+
+/* =========================
+   PRODUTOS
+========================= */
+
+.produto{
+  background:white;
+  border-radius:20px;
+  margin-bottom:20px;
+  overflow:hidden;
+  border:1px solid #eee;
+  box-shadow:0 4px 18px rgba(0,0,0,.07);
+}
+
+.imagem-container{
+  position:relative;
+  background:#eee;
+}
+
+.produto img{
+  display:block;
+  width:100%;
+  height:245px;
+  object-fit:cover;
+}
+
+.etiqueta{
+  position:absolute;
+  top:13px;
+  left:13px;
+  background:#075e54;
+  color:white;
+  padding:7px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.produto-info{
+  padding:17px;
+}
+
+.produto h3{
+  font-size:19px;
+  margin-bottom:7px;
+}
+
+.descricao{
+  color:#777;
+  font-size:13px;
+  line-height:1.5;
+  margin-bottom:12px;
+}
+
+.preco{
+  color:#075e54;
+  font-size:23px;
+  font-weight:bold;
+  margin-bottom:14px;
+}
+
+/* =========================
+   QUANTIDADE
+========================= */
+
+.quantidade{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-bottom:14px;
+}
+
+.quantidade button{
+  width:40px;
+  height:40px;
+  border:none;
+  border-radius:50%;
+  background:#e8f5f3;
+  color:#075e54;
+  font-size:22px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.quantidade span{
+  min-width:28px;
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* =========================
+   ADICIONAR
+========================= */
+
+.adicionar{
+  width:100%;
+  border:none;
+  border-radius:12px;
+  padding:14px;
+  background:linear-gradient(135deg,#075e54,#128c7e);
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.adicionar:active,
+.categoria:active,
+.quantidade button:active{
+  transform:scale(.97);
+}
+
+/* =========================
+   BENEFÍCIOS
+========================= */
+
+.beneficios{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin:25px 0;
+}
+
+.beneficio{
+  border:1px solid #eee;
+  background:white;
+  border-radius:15px;
+  padding:14px 6px;
+  text-align:center;
+  cursor:pointer;
+  color:#333;
+}
+
+.beneficio:active{
+  transform:scale(.95);
+  background:#e8f5f3;
+}
+
+.beneficio-icon{
+  font-size:25px;
+  margin-bottom:6px;
+}
+
+.beneficio strong{
+  display:block;
+  font-size:11px;
+}
+
+.beneficio span{
+  display:block;
+  font-size:9px;
+  color:#888;
+  margin-top:3px;
+}
+
+/* =========================
+   CARRINHO
+========================= */
+
+.carrinho{
+  background:white;
+  padding:19px;
+  border-radius:20px;
+  border:1px solid #eee;
+  box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.carrinho-topo{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
+
+.carrinho h2{
+  font-size:20px;
+}
+
+.contador-carrinho{
+  background:#075e54;
+  color:white;
+  min-width:29px;
+  height:29px;
+  padding:0 8px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.item-carrinho{
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+}
+
+.remover{
+  border:none;
+  background:#ffe9e9;
+  color:#d32f2f;
+  border-radius:8px;
+  padding:8px 10px;
+  cursor:pointer;
+}
+
+.total{
+  font-size:21px;
+  font-weight:bold;
+  margin:18px 0;
+}
+
+.total span{
+  color:#075e54;
+}
+
+.whatsapp{
+  display:block;
+  width:100%;
+  padding:15px;
+  text-align:center;
+  text-decoration:none;
+  border-radius:12px;
+  background:#25d366;
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#888;
+  font-size:12px;
+}
+
+footer strong{
+  color:#075e54;
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:380px){
+
+  header h1{
+    font-size:26px;
+  }
+
+  .banner-texto h2{
+    font-size:18px;
+  }
+
+  .produto img{
+    height:220px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     CABEÇALHO
+========================= -->
+
+<header>
+
+  <div class="topo">
+
+    <div class="topo-barra">
+      <button
+        class="botao-carrinho-topo"
+        onclick="irParaCarrinho()"
+      >
+        🛒 Carrinho
+        <span id="contadorTopo">0</span>
+      </button>
+    </div>
+
+    <div class="logo">
+      🛍️
+    </div>
+
+    <h1>Catálogo Moz</h1>
+
+    <p>
+      Tudo o que procuras, num só lugar
+    </p>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     BANNER
+========================= -->
+
+<section class="banner">
+
+  <div class="banner-conteudo">
+
+    <div class="banner-texto">
+
+      <small>🔥 OFERTAS DO DIA</small>
+
+      <h2>
+        Encontre produtos de qualidade
+      </h2>
+
+      <p>
+        Escolha os seus produtos favoritos,
+        adicione ao carrinho e faça a sua
+        encomenda pelo WhatsApp.
+      </p>
+
+      <button
+        class="botao-ver-produtos"
+        onclick="document.querySelector('.produto').scrollIntoView({behavior:'smooth'})"
+      >
+        🛍️ Ver produtos
+      </button>
+
+    </div>
+
+    <div class="banner-icone">
+      🛒
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PESQUISA
+========================= -->
+
+<div class="pesquisa-area">
+
+<div class="pesquisa">
+
+<input
+type="text"
+id="pesquisa"
+placeholder="🔎 Procurar produto..."
+onkeyup="pesquisarProduto()"
+>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CATEGORIAS
+========================= -->
+
+<div class="categorias">
+
+<button
+class="categoria ativa"
+onclick="filtrarCategoria('todos',this)"
+>
+🛍️ Todos
+</button>
+
+
+<button
+class="categoria"
+onclick="filtrarCategoria('roupas',this)"
+>
+👕 Roupas
+</button>
+
+
+<button
+class="categoria"
+onclick="filtrarCategoria('calcados',this)"
+>
+👟 Calçados
+</button>
+
+
+<button
+class="categoria"
+onclick="filtrarCategoria('beleza',this)"
+>
+💄 Beleza
+</button>
+
+
+<button
+class="categoria"
+onclick="filtrarCategoria('eletronicos',this)"
+>
+📱 Eletrónicos
+</button>
+
+</div>
+
+
+<!-- =========================
+     PRODUTOS
+========================= -->
+
+<div class="container">
+
+
+<div class="titulo-area">
+
+<h2 class="titulo">
+Produtos em destaque
+</h2>
+
+<span class="subtitulo">
+Qualidade & confiança
+</span>
+
+</div>
+
+
+<!-- PRODUTO 1 -->
+
+<div
+class="produto"
+data-categoria="roupas"
+>
+
+<div class="imagem-container">
+
+<img
+src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+alt="Camiseta Masculina"
+>
+
+<span class="etiqueta">
+👕 Roupas
+</span>
+
+</div>
+
+
+<div class="produto-info">
+
+<h3>
+Camiseta Masculina
+</h3>
+
+<p class="descricao">
+Camiseta confortável e moderna
+para uso diário.
+</p>
+
+<p class="preco">
+850 MT
+</p>
+
+
+<div class="quantidade">
+
+<button onclick="diminuir(1)">
+−
+</button>
+
+<span id="qtd1">
+1
+</span>
+
+<button onclick="aumentar(1)">
++
+</button>
+
+</div>
+
+
+<button
+class="adicionar"
+onclick="adicionarCarrinho('Camiseta Masculina',850,1)"
+>
+🛒 Adicionar ao carrinho
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUTO 2 -->
+
+<div
+class="produto"
+data-categoria="calcados"
+>
+
+<div class="imagem-container">
+
+<img
+src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+alt="Tênis Esportivo"
+>
+
+<span class="etiqueta">
+👟 Calçados
+</span>
+
+</div>
+
+
+<div class="produto-info">
+
+<h3>
+Tênis Esportivo
+</h3>
+
+<p class="descricao">
+Tênis confortável para caminhada
+e uso diário.
+</p>
+
+<p class="preco">
+2.500 MT
+</p>
+
+
+<div class="quantidade">
+
+<button onclick="diminuir(2)">
+−
+</button>
+
+<span id="qtd2">
+1
+</span>
+
+<button onclick="aumentar(2)">
++
+</button>
+
+</div>
+
+
+<button
+class="adicionar"
+onclick="adicionarCarrinho('Tênis Esportivo',2500,2)"
+>
+🛒 Adicionar ao carrinho
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUTO 3 -->
+
+<div
+class="produto"
+data-categoria="beleza"
+>
+
+<div class="imagem-container">
+
+<img
+src="https://images.unsplash.com/photo-1556228578-8c89e6adf883"
+alt="Produto de Beleza"
+>
+
+<span class="etiqueta">
+💄 Beleza
+</span>
+
+</div>
+
+
+<div class="produto-info">
+
+<h3>
+Produto de Beleza
+</h3>
+
+<p class="descricao">
+Produto de qualidade para
+cuidado pessoal.
+</p>
+
+<p class="preco">
+1.200 MT
+</p>
+
+
+<div class="quantidade">
+
+<button onclick="diminuir(3)">
+−
+</button>
+
+<span id="qtd3">
+1
+</span>
+
+<button onclick="aumentar(3)">
++
+</button>
+
+</div>
+
+
+<button
+class="adicionar"
+onclick="adicionarCarrinho('Produto de Beleza',1200,3)"
+>
+🛒 Adicionar ao carrinho
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     BENEFÍCIOS
+========================= -->
+
+<div class="beneficios">
+
+
+<button
+class="beneficio"
+onclick="mostrarEntrega()"
+>
+
+<div class="beneficio-icon">
+🚚
+</div>
+
+<strong>
+Entrega
+</strong>
+
+<span>
+Rápida e segura
+</span>
+
+</button>
+
+
+<button
+class="beneficio"
+onclick="mostrarSeguranca()"
+>
+
+<div class="beneficio-icon">
+🔒
+</div>
+
+<strong>
+Compra segura
+</strong>
+
+<span>
+Mais confiança
+</span>
+
+</button>
+
+
+<button
+class="beneficio"
+onclick="abrirAtendimento()"
+>
+
+<div class="beneficio-icon">
+💬
+</div>
+
+<strong>
+Atendimento
+</strong>
+
+<span>
+Via WhatsApp
+</span>
+
+</button>
+
+
+</div>
+
+
+<!-- =========================
+     CARRINHO
+========================= -->
+
+<div
+class="carrinho"
+id="carrinho"
+>
+
+<div class="carrinho-topo">
+
+<h2>
+🛒 Meu carrinho
+</h2>
+
+<div
+class="contador-carrinho"
+id="contadorCarrinho"
+>
+0
+</div>
+
+</div>
+
+
+<div id="listaCarrinho">
+
+Nenhum produto adicionado.
+
+</div>
+
+
+<div class="total">
+
+Total:
+
+<span id="total">
+0
+</span>
+
+MT
+
+</div>
+
+
+<a
+class="whatsapp"
+href="#"
+onclick="enviarWhatsApp();return false;"
+>
+📲 Enviar pedido pelo WhatsApp
+</a>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     RODAPÉ
+========================= -->
+
+<footer>
+
+<strong>
+Catálogo Moz
+</strong>
+
+<br><br>
+
+Qualidade, confiança e bons preços.
+
+<br><br>
+
+© 2026 Catálogo Moz
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+let carrinho = [];
+
+
+let quantidades = {
+1:1,
+2:1,
+3:1
+};
+
+
+/* =========================
+   AUMENTAR
+========================= */
+
+function aumentar(id){
+
+quantidades[id]++;
+
+document.getElementById(
+"qtd"+id
+).innerText=quantidades[id];
+
+}
+
+
+/* =========================
+   DIMINUIR
+========================= */
+
+function diminuir(id){
+
+if(quantidades[id]>1){
+
+quantidades[id]--;
+
+}
+
+document.getElementById(
+"qtd"+id
+).innerText=quantidades[id];
+
+}
+
+
+/* =========================
+   ADICIONAR
+========================= */
+
+function adicionarCarrinho(nome,preco,id){
+
+let quantidade=quantidades[id];
+
+
+let existente=carrinho.find(
+item=>item.nome===nome
+);
+
+
+if(existente){
+
+existente.quantidade+=quantidade;
+
+}else{
+
+carrinho.push({
+
+nome:nome,
+preco:preco,
+quantidade:quantidade
+
+});
+
+}
+
+
+atualizarCarrinho();
+
+
+alert(
+"Produto adicionado ao carrinho!"
+);
+
+}
+
+
+/* =========================
+   ATUALIZAR CARRINHO
+========================= */
+
+function atualizarCarrinho(){
+
+let lista=document.getElementById(
+"listaCarrinho"
+);
+
+let total=document.getElementById(
+"total"
+);
+
+let contador=document.getElementById(
+"contadorCarrinho"
+);
+
+let contadorTopo=document.getElementById(
+"contadorTopo"
+);
+
+
+lista.innerHTML="";
+
+
+let valorTotal=0;
+
+let quantidadeTotal=0;
+
+
+if(carrinho.length===0){
+
+lista.innerHTML=
+"Nenhum produto adicionado.";
+
+}
+
+
+carrinho.forEach(function(item){
+
+let subtotal=
+item.preco*item.quantidade;
+
+
+valorTotal+=subtotal;
+
+quantidadeTotal+=item.quantidade;
+
+
+let div=document.createElement(
+"div"
+);
+
+div.className=
+"item-carrinho";
+
+
+let info=document.createElement(
+"div"
+);
+
+
+info.innerHTML=
+"<strong>"+
+item.nome+
+"</strong><br>"+
+item.quantidade+
+" × "+
+item.preco+
+" MT = <strong>"+
+subtotal+
+" MT</strong>";
+
+
+let remover=document.createElement(
+"button"
+);
+
+remover.className="remover";
+
+remover.innerText="🗑️";
+
+
+remover.onclick=function(){
+
+removerCarrinho(item.nome);
+
+};
+
+
+div.appendChild(info);
+
+div.appendChild(remover);
+
+lista.appendChild(div);
+
+});
+
+
+total.innerText=valorTotal;
+
+contador.innerText=quantidadeTotal;
+
+contadorTopo.innerText=quantidadeTotal;
+
+}
+
+
+/* =========================
+   REMOVER
+========================= */
+
+function removerCarrinho(nome){
+
+carrinho=carrinho.filter(
+function(item){
+
+return item.nome!==nome;
+
+}
+);
+
+
+atualizarCarrinho();
+
+}
+
+
+/* =========================
+   PESQUISA
+========================= */
+
+function pesquisarProduto(){
+
+let texto=document
+.getElementById("pesquisa")
+.value
+.toLowerCase();
+
+
+let produtos=document
+.querySelectorAll(".produto");
+
+
+produtos.forEach(function(produto){
+
+let nome=produto
+.querySelector("h3")
+.innerText
+.toLowerCase();
+
+
+let descricao=produto
+.querySelector(".descricao")
+.innerText
+.toLowerCase();
+
+
+if(
+nome.includes(texto) ||
+descricao.includes(texto)
+){
+
+produto.style.display="block";
+
+}else{
+
+produto.style.display="none";
+
+}
+
+});
+
+}
+
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+function filtrarCategoria(categoria,botao){
+
+let produtos=document
+.querySelectorAll(".produto");
+
+
+let botoes=document
+.querySelectorAll(".categoria");
+
+
+botoes.forEach(function(btn){
+
+btn.classList.remove("ativa");
+
+});
+
+
+botao.classList.add("ativa");
+
+
+produtos.forEach(function(produto){
+
+let categoriaProduto=
+produto.getAttribute(
+"data-categoria"
+);
+
+
+if(
+categoria==="todos" ||
+categoriaProduto===categoria
+){
+
+produto.style.display="block";
+
+}else{
+
+produto.style.display="none";
+
+}
+
+});
+
+}
+
+
+/* =========================
+   IR PARA CARRINHO
+========================= */
+
+function irParaCarrinho(){
+
+document
+.getElementById("carrinho")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   ENTREGA
+========================= */
+
+function mostrarEntrega(){
+
+alert(
+"🚚 ENTREGA\n\n"+
+"Fazemos entrega dos produtos conforme "+
+"a localização do cliente.\n\n"+
+"Contacte-nos pelo WhatsApp para saber "+
+"o prazo e o valor da entrega."
+);
+
+}
+
+
+/* =========================
+   COMPRA SEGURA
+========================= */
+
+function mostrarSeguranca(){
+
+alert(
+"🔒 COMPRA SEGURA\n\n"+
+"A sua encomenda é tratada com atenção "+
+"e segurança.\n\n"+
+"Pode falar connosco pelo WhatsApp "+
+"antes de confirmar a sua compra."
+);
+
+}
+
+
+/* =========================
+   ATENDIMENTO
+========================= */
+
+function abrirAtendimento(){
+
+let numero=
+"258842557495";
+
+
+let mensagem=
+"Olá! Preciso de ajuda com o Catálogo Moz.";
+
+
+let url=
+"https://wa.me/"+
+numero+
+"?text="+
+encodeURIComponent(mensagem);
+
+
+window.open(
+url,
+"_blank"
+);
+
+}
+
+
+/* =========================
+   WHATSAPP DO PEDIDO
+========================= */
+
+function enviarWhatsApp(){
+
+if(carrinho.length===0){
+
+alert(
+"Adicione pelo menos um produto ao carrinho."
+);
+
+return;
+
+}
+
+
+let numero=
+"258842557495";
+
+
+let mensagem=
+"Olá! Gostaria de fazer uma encomenda:%0A%0A";
+
+
+let total=0;
+
+
+carrinho.forEach(function(item){
+
+let subtotal=
+item.preco*item.quantidade;
+
+
+total+=subtotal;
+
+
+mensagem+=
+"• "+
+item.nome+
+" × "+
+item.quantidade+
+" = "+
+subtotal+
+" MT%0A";
+
+});
+
+
+mensagem+=
+"%0A*Total: "+
+total+
+" MT*";
+
+
+let url=
+"https://wa.me/"+
+numero+
+"?text="+
+mensagem;
+
+
+window.open(
+url,
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>
