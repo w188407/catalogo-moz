@@ -1003,57 +1003,6 @@ onclick="enviarWhatsApp();return false;"
 
 </div>
 
-  /* =========================
-   CADASTRO DO CLIENTE
-========================= */
-
-.cadastro{
-  background:white;
-  padding:20px;
-  border-radius:20px;
-  border:1px solid #eee;
-  box-shadow:0 4px 18px rgba(0,0,0,.08);
-  margin:25px 0;
-}
-
-.cadastro h2{
-  font-size:20px;
-  margin-bottom:8px;
-}
-
-.cadastro-descricao{
-  color:#777;
-  font-size:13px;
-  margin-bottom:15px;
-  line-height:1.4;
-}
-
-.cadastro input{
-  width:100%;
-  padding:14px;
-  margin-bottom:10px;
-  border:1px solid #ddd;
-  border-radius:12px;
-  outline:none;
-  font-size:14px;
-}
-
-.cadastro input:focus{
-  border-color:#128c7e;
-}
-
-.botao-cadastro{
-  width:100%;
-  border:none;
-  border-radius:12px;
-  padding:14px;
-  background:linear-gradient(135deg,#075e54,#128c7e);
-  color:white;
-  font-size:15px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
 <!-- =========================
      RODAPÉ
 ========================= -->
@@ -1563,79 +1512,6 @@ url,
 );
 
 }
-
-  /* =========================
-   CADASTRO DO CLIENTE
-========================= */
-
-function cadastrarCliente(){
-
-  let nome = document
-    .getElementById("nomeCliente")
-    .value
-    .trim();
-
-  let telefone = document
-    .getElementById("telefoneCliente")
-    .value
-    .trim();
-
-  let endereco = document
-    .getElementById("enderecoCliente")
-    .value
-    .trim();
-
-  let email = document
-    .getElementById("emailCliente")
-    .value
-    .trim();
-
-  if(nome === "" || telefone === "" || endereco === ""){
-
-    alert(
-      "⚠️ Preencha o nome, número de WhatsApp e localização."
-    );
-
-    return;
-  }
-
-  let cliente = {
-    nome: nome,
-    telefone: telefone,
-    endereco: endereco,
-    email: email
-  };
-
-  localStorage.setItem(
-    "clienteCatologoMoz",
-    JSON.stringify(cliente)
-  );
-
-  alert(
-    "✅ Cadastro realizado com sucesso!\n\n" +
-    "Obrigado, " + nome + "!"
-  );
-
-  let mensagem =
-    "Olá! Fiz o meu cadastro no Catálogo Moz.\n\n" +
-    "👤 Nome: " + nome + "\n" +
-    "📱 WhatsApp: " + telefone + "\n" +
-    "📍 Localização: " + endereco;
-
-  if(email !== ""){
-    mensagem += "\n📧 E-mail: " + email;
-  }
-
-  let numero = "258842557495";
-
-  let url =
-    "https://wa.me/" +
-    numero +
-    "?text=" +
-    encodeURIComponent(mensagem);
-
-  window.open(url, "_blank");
-  }
 
 </script>
 
